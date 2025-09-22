@@ -84,6 +84,23 @@ const TypingGame: React.FC<TypingGameProps> = ({ code, language, onEnd, onReset,
     inputRef.current.focus({ preventScroll: true });
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (isFinished) return;
+
+    // Autocomplete Word with Tab
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      handleAutocomplete('word');
+    }
+
+    // Autocomplete Line with Ctrl + Enter
+    if (e.key === 'Enter' && e.ctrlKey) {
+      e.preventDefault();
+      handleAutocomplete('line');
+    }
+  };
+
+
   let errorIndex = -1;
   for (let i = 0; i < userInput.length; i++) {
     if (userInput[i] !== gameCode[i]) {
@@ -179,6 +196,7 @@ const TypingGame: React.FC<TypingGameProps> = ({ code, language, onEnd, onReset,
                  ref={inputRef}
                  value={userInput}
                  onChange={handleChange}
+                 onKeyDown={handleKeyDown}
                  className="absolute inset-0 w-full h-full z-10 resize-none border-none bg-transparent text-transparent focus:outline-none"
                  style={{
                    ...codeLayerStyle,
@@ -231,15 +249,17 @@ const TypingGame: React.FC<TypingGameProps> = ({ code, language, onEnd, onReset,
         <div className="mt-4 flex items-center justify-center space-x-4 flex-shrink-0">
           <button 
             onClick={() => handleAutocomplete('word')}
-            className="bg-white/10 text-gray-300 py-2 px-5 rounded-lg hover:bg-white/20 border border-white/20 transition-colors"
+            className="bg-white/10 text-gray-300 py-2 px-5 rounded-lg hover:bg-white/20 border border-white/20 transition-colors flex items-center"
           >
             Autocomplete Word
+            <kbd className="ml-2 font-sans text-xs bg-gray-700/80 text-gray-300 rounded px-1.5 py-0.5 border-b-2 border-gray-600/80">Tab</kbd>
           </button>
            <button 
             onClick={() => handleAutocomplete('line')}
-            className="bg-white/10 text-gray-300 py-2 px-5 rounded-lg hover:bg-white/20 border border-white/20 transition-colors"
+            className="bg-white/10 text-gray-300 py-2 px-5 rounded-lg hover:bg-white/20 border border-white/20 transition-colors flex items-center"
           >
             Autocomplete Line
+            <kbd className="ml-2 font-sans text-xs bg-gray-700/80 text-gray-300 rounded px-1.5 py-0.5 border-b-2 border-gray-600/80">Ctrl + Enter</kbd>
           </button>
           <button 
             onClick={onReset}

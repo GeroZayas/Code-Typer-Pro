@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-g" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Typer Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-color: #0c0a17;
+        background-image: radial-gradient(at 27% 37%, hsla(215, 98%, 62%, 0.1) 0px, transparent 50%), 
+                          radial-gradient(at 97% 21%, hsla(233, 98%, 62%, 0.1) 0px, transparent 50%), 
+                          radial-gradient(at 75% 88%, hsla(285, 98%, 62%, 0.1) 0px, transparent 50%);
+      }
+      /* Custom scrollbar for a sleek look */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(148, 108, 246, 0.5);
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(148, 108, 246, 0.8);
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['Fira Code', 'monospace'],
+            },
+            colors: {
+              'glass-purple': 'rgba(148, 108, 246, 0.1)',
+              'brand-purple': '#946cf6',
+              'brand-cyan': '#4de5f4',
+            },
+            boxShadow: {
+              'glow-purple': '0 0 15px 0 rgba(148, 108, 246, 0.5)',
+              'glow-cyan': '0 0 15px 0 rgba(77, 229, 244, 0.5)',
+            }
+          },
+        },
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react-syntax-highlighter/": "https://aistudiocdn.com/react-syntax-highlighter@^15.6.6/",
+    "react-syntax-highlighter": "https://aistudiocdn.com/react-syntax-highlighter@^15.6.6"
+  }
+}
+</script>
+</head>
+  <body class="text-gray-100 font-sans h-full">
+    <div id="root" class="h-full"></div>
+  </body>
+</html>

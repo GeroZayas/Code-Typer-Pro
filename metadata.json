@@ -1,0 +1,5 @@
+{
+  "name": "Code Typer Pro",
+  "description": "A typing game to practice coding speed and accuracy. Load or paste your code, choose a language, and type it out exactly. The app provides real-time feedback with syntax highlighting, highlighting errors as you type.",
+  "requestFramePermissions": []
+}
